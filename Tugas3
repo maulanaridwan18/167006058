@@ -1,0 +1,51 @@
+import java.io.*;
+class input{
+	public static String st(){
+		int k;
+		String str="";
+		boolean n = false;
+		
+		while (!n){
+			try{
+				k = System.in.read();
+				if (k <0 || (char)k == '\n') n=true;
+				else
+					if ((char) k != '\r') str = str + (char)k;
+			}
+			catch (java.io.IOException e){
+				System.err.println("Error");
+				n=true;
+			}
+		}
+		return str;
+	}
+}
+
+class output{
+	public static void main (String[] args){
+		System.out.print("Masukkan Nama : ");
+		String nama = input.st();
+		System.out.print("Masukkan Alamat : ");
+		String alamat = input.st();
+		System.out.print("Masukkan Jurusan : ");
+		String jurusan = input.st();
+		System.out.print("Masukkan NPM : ");
+		int npm = Integer.valueOf(input.st()).intValue();
+		
+		System.out.println();
+		System.out.println();
+		System.out.println("Nama Anda : " + nama);
+		System.out.println("Alamat Anda : " +alamat);
+		System.out.println("Jurusan Anda : " + jurusan);
+		char kelas;
+		if (npm >= 81)
+			kelas='C';
+		else
+			if (npm >= 41) kelas ='B';
+		else
+			kelas='A';
+		
+		System.out.println("Sesuai dengan NPM, kelas anda adalah " + kelas);
+		
+	}
+}
